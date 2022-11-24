@@ -1,0 +1,25 @@
+package com.peaches.groceryStore.config;
+
+@Configuration
+public class RestConfiguration extends RepositoryRestConfigurerAdapter{
+
+      @PersistenceContext
+      private EntityManager entityManager;
+
+      @Override
+      public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
+           //TODO: Expose for specific entity!
+           //config.exposeIdsFor(Officer.class);
+           //config.exposeIdsFor(Position.class);
+
+           //TODO: Expose id for all entities!
+           entityManager.getMetamodel().getEntities().forEach(entity->{
+                try {
+                     System.out.println("Model: " + entity.getName());
+                     Class<? extends Object> clazz = Class.forName(String.format("yourpackage.%s", entity.getName()));
+                     config.exposeIdsFor(clazz);
+                } catch (Exception e) {
+                     System.out.println(e.getMessage());
+                }
+            });
+    }

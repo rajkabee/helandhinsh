@@ -1,0 +1,8 @@
+<h1>Products Component</h1>
+<h2 id="title" *ngIf="show; else elseBlock">Fruits</h2><button (click)="toggleTitle()">{{btnname}}</button>
+<ng-template #elseBlock> <h1>no title availabel</h1></ng-template>
+
+<hr>
+<ng-template ngFor let-fruit [ngForOf]="fruits" let-i="index">
+  <li>{{i}}.{{fruit}}</li>
+</ng-template>

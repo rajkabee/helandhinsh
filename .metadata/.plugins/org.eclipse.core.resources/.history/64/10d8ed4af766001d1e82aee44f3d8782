@@ -1,0 +1,5 @@
+package com.peaches.groceryStore.config;
+
+public class RestConfiguration {
+
+}
