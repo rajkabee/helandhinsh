@@ -22,7 +22,7 @@ export class ProductByCategoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.currentCategoryId);
+    //console.log(this.currentCategoryId);
     this.listProducts();
   }
 

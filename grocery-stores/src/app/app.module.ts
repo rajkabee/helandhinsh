@@ -19,6 +19,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CategoryFormComponent } from './components/category-form/category-form.component';
 import { ProductByCategoryComponent } from './components/product-by-category/product-by-category.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     TopBrandsComponent,
     HomeComponent,
     CategoryFormComponent,
-    ProductByCategoryComponent
+    ProductByCategoryComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

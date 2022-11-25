@@ -15,5 +15,5 @@ import com.peaches.groceryStore.model.entities.Product;
 public interface ProductRepository extends JpaRepository<Product, Long> {
 	
 	Page<Product> findByCategoriesId(@Param("categoryId") long categoryId, Pageable pageable);
-	Page<Product> findByNameContaining(@Param("name") String name, Pageable pageable);
+
 }
