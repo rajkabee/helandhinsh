@@ -20,6 +20,7 @@ import { CategoryFormComponent } from './components/category-form/category-form.
 import { ProductByCategoryComponent } from './components/product-by-category/product-by-category.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SearchComponent } from './components/search/search.component';
+import { CartStatusComponent } from './components/cart-status/cart-status.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { SearchComponent } from './components/search/search.component';
     HomeComponent,
     CategoryFormComponent,
     ProductByCategoryComponent,
-    SearchComponent
+    SearchComponent,
+    CartStatusComponent
   ],
   imports: [
     BrowserModule,

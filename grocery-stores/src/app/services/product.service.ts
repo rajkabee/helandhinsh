@@ -20,12 +20,13 @@ export class ProductService{
     //console.log(id);
     return this.httpClient.get<GetResponse>(this.baseUrl+'/search/findByCategoriesId?categoryId='+id["id"]+'&page='+thePage+'&size='+thePageSize);
   }
-  searchProducts(theKeyword: string): Observable<Product[]> {
+  searchProducts(theKeyword: string,
+                thePage: number,
+                thePageSize: number,): Observable<GetResponse> {
     // need to build URL based on the keyword
-    const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${theKeyword}`;
-    return this.httpClient.get<GetResponse>(searchUrl)
-    .pipe(
-    map(response => response._embedded.products));
+    const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${theKeyword}&page=${thePage}&size=${thePageSize}`;
+    return this.httpClient.get<GetResponse>(searchUrl);
+
     }
 }
   interface GetResponse {

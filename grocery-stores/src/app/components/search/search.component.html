@@ -43,7 +43,17 @@
     </div>
     <div class="footer-pagination">
 
-
+      <ngb-pagination [(page)]="thePageNumber"
+      [pageSize]="thePageSize"
+      [collectionSize]="theTotalElements"
+      (pageChange)="listProducts()">
+      </ngb-pagination>
+      <select (change)="updatePageSize($event)">
+        <option>5</option>
+        <option selected="true">10</option>
+        <option>20</option>
+        <option>50</option>
+        </select>
 
       </div>
   </div>

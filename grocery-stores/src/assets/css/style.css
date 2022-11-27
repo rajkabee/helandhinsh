@@ -4,6 +4,8 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+
+
 html, body{
     font-size: 100%;
 	font-family: 'Open Sans', sans-serif;
@@ -562,7 +564,7 @@ ul.dropdown-menu.drp-mnu li a i {
 .btn-danger.my-cart-btn:focus {
     outline: none;
 }
-.snipcart-details input.button {
+.snipcart-details input.button, .addtocart {
     font-size: 14px;
     color: #fff;
     background: #FA1818;
@@ -575,7 +577,7 @@ ul.dropdown-menu.drp-mnu li a i {
     padding: .5em 0;
     outline: none;
 }
-.agile_top_brand_left_grid:hover .snipcart-details input.button,.snipcart-details input.button:hover{
+.agile_top_brand_left_grid:hover .snipcart-details input.button,.snipcart-details input.button:hover ,.addtocart:hover{
     background: #84C639;
 }
 .product_list_header input.button {
@@ -3001,7 +3003,7 @@ input.checkbox:checked:after {
 	#PPMiniCart {
 		left: 42% !important;
 	}
-	.snipcart-details input.button {
+	.snipcart-details input.button ,.addtocart{
 		font-size: 13px;
 	}
 	.w3l_banner_nav_right_banner3_btml h4 {
@@ -3455,7 +3457,7 @@ input.checkbox:checked:after {
 	.w3l_panel_group_faq {
 		margin: 1em 0 0;
 	}
-	.snipcart-details input.button {
+	.snipcart-details input.button ,.addtocart{
 		font-size: 14px;
 	}
 	.checkout-left-basket {
@@ -4800,7 +4802,7 @@ input.checkbox:checked:after {
 		padding-left: 5px !important;
 		font-size: 13px !important;
 	}
-	.snipcart-details input.button {
+	.snipcart-details input.button ,.addtocart{
 		font-size: 13px;
 	}
 	.w3ls_w3l_banner_nav_right_grid1 h6 {
@@ -4822,4 +4824,15 @@ input.checkbox:checked:after {
 		background: url(../images/cart.png) no-repeat 105px 5px;
 		font-size: 13px;
 	}
+}
+.cart-area.d-n{
+  display:block
+}
+
+.cart-area i{
+  font-size:22px;
+  float:left;
+  margin-top:16px;
+  color:#fff;
+  margin-left:15px
 }

@@ -1,3 +1,5 @@
+import { CartService } from './../../services/cart.service';
+import { CartItem } from './../../common/cart-item';
 import { Product } from './../../common/product';
 import { ProductService } from './../../services/product.service';
 import { Component, OnInit } from '@angular/core';
@@ -15,7 +17,7 @@ export class ProductByCategoryComponent implements OnInit {
   currentCategoryId;
   products: Product[]=[];
   defaultUrl:string="http://localhost:8080/"
-  constructor(private route:ActivatedRoute, private productService:ProductService) {
+  constructor(private route:ActivatedRoute, private productService:ProductService, private cartService:CartService) {
     this.route.params.subscribe( params => {
       this.currentCategoryId=params;
     });
@@ -44,5 +46,13 @@ export class ProductByCategoryComponent implements OnInit {
         this.thePageNumber = 1;
         this.listProducts();
         }
+
+  addToCart(theProduct: Product) {
+          console.log(`Adding to cart: ${theProduct.name}, ${theProduct.unitPrice}`);
+          // TODO ... do the real work
+          const theCartItem = new CartItem(theProduct);
+          // TODO ... do the real work
+          this.cartService.addToCart(theCartItem);
+          }
 
 }

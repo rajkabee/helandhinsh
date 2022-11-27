@@ -814,3 +814,19 @@ org.eclipse.core.runtime.CoreException: Launch configuration AppTest references 
 2022-11-23 11:11:57,056 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@170c8fbf{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
 2022-11-23 11:11:57,084 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@a3fea55{/help,null,STOPPED}
 2022-11-24 09:19:04,870 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2022-11-25 09:12:22,210 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2022-11-25 09:16:01,847 [Start Help Server] INFO  org.eclipse.jetty.server.Server - jetty-10.0.9; built: 2022-03-30T16:46:32.527Z; git: a9eaf8d5d73369acf610ce88f850c0d56c4b1113; jvm 17.0.3+7
+2022-11-25 09:16:01,887 [Start Help Server] INFO  o.e.j.s.s.DefaultSessionIdManager - Session workerName=node0
+2022-11-25 09:16:01,952 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@7a2f5225{/help,null,AVAILABLE}
+2022-11-25 09:16:01,978 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@2efabe39{HTTP/1.1, (http/1.1)}{127.0.0.1:55661}
+2022-11-25 09:16:01,991 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started Server@724e9a96{STARTING}[10.0.9,sto=0] @236662ms
+2022-11-25 09:16:27,543 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-11-25 09:16:27,543 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-11-25 09:16:27,548 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-11-25 09:16:27,577 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 101 resources
+2022-11-25 09:16:27,607 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-11-25 09:16:27,607 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-11-25 09:16:27,607 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Angular 9am HEL\angular at 9\groceryStoreBackend\src\test\resources
+2022-11-25 09:41:44,342 [Stop Help Server] INFO  org.eclipse.jetty.server.Server - Stopped Server@724e9a96{STOPPING}[10.0.9,sto=0]
+2022-11-25 09:41:44,360 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@2efabe39{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
+2022-11-25 09:41:44,385 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@7a2f5225{/help,null,STOPPED}
