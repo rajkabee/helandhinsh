@@ -1,7 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import * as paypal from '../../../assets/js/minicart.js';
+declare let paypal: any;
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -17,5 +18,8 @@ export class HeaderComponent implements OnInit {
     console.log(`value=${value}`);
     this.router.navigateByUrl(`/search/${value}`);
     }
-
+    viewCart(){
+      console.log("cart rendering");
+      paypal.minicart.view.show();
+    }
 }

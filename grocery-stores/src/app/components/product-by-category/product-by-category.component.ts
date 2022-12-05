@@ -5,8 +5,7 @@ import { Product } from './../../common/product';
 import { ProductService } from './../../services/product.service';
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import * as paypal from '../../../assets/js/minicart.js';
-declare let paypal: any;
+
 @Component({
   selector: 'app-product-by-category',
   templateUrl: './product-by-category.component.html',
@@ -34,7 +33,8 @@ export class ProductByCategoryComponent implements OnInit {
   ngOnInit(): void {
     //console.log(this.currentCategoryId);
     this.listProducts();
-    paypal.minicart.render();
+
+
   }
 
   listProducts(){
@@ -57,17 +57,11 @@ export class ProductByCategoryComponent implements OnInit {
         }
 
   addToCart(theProduct) {
-          console.log(`Adding to cart: ${theProduct.name}, ${theProduct.unitPrice}`);
+          //console.log(`Adding to cart: ${theProduct.name}, ${theProduct.unitPrice}`);
           // TODO ... do the real work
           const theCartItem = new CartItem(theProduct);
           // TODO ... do the real work
           this.cartService.addToCart(theCartItem);
-          //paypal.minicart.cart.add(this.sampleData);
-          theProduct.item_name=theProduct.name;
-          theProduct.amount = theProduct.unitPrice;
-          console.log(theProduct);
-          let item={ "business": "user@example.com", "item_name": "Product", "amount": 5.00, "currency_code": "USD" };
-          paypal.minicart.cart.add(new MinicartItem(theProduct));
           }
 
 
