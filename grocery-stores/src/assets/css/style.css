@@ -627,6 +627,7 @@ ul.dropdown-menu.drp-mnu li a i {
 }
 #PPMiniCart {
     left: 44% !important;
+    z-index: 1;
 }
 .minicart-showing #PPMiniCart form{
     overflow-x: hidden;
