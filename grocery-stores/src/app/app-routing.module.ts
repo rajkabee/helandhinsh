@@ -1,3 +1,4 @@
+import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { SearchComponent } from './components/search/search.component';
 import { ProductByCategoryComponent } from './components/product-by-category/product-by-category.component';
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path: "category/add", component: CategoryFormComponent},
   {path: "search/:keyword", component: SearchComponent},
   {path: 'cart-details', component: CartDetailsComponent},
+  {path: 'checkout', component: CheckoutComponent},
   {path: "**", component: HomeComponent},
 ];
 

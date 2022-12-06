@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
     }
     viewCart(){
       console.log("cart rendering");
+      
       paypal.minicart.view.show();
     }
 }
