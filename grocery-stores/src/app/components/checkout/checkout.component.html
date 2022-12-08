@@ -1,124 +1,113 @@
-<form [formGroup]="checkoutFormGroup" (submit)="onSubmit()">
-  <!-- customer form group -->
-  <div formGroupName="customer" class="form-area">
-    <h3>Customer</h3>
-    <div class="row">
-      <div class="col-md-2"> <label>First Name</label></div>
-      <input formControlName="firstName" type="text">
-    </div>
-    <div class="row">
-      <div class="col-md-2"> <label>Last Name</label></div>
-      <input formControlName="lastName" type="text">
-    </div>
-    <div class="row">
-      <div class="col-md-2"> <label>Email</label></div>
-      <input formControlName="email" type="email">
-    </div>
-    </div>
-    <div class="form-area">
-      <h3>Shipping Address</h3>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="input-space">
-            <input type="text" placeholder="Street">
-          </div>
-        </div>
-        <div class="col-md-12">
-          <div class="input-space">
-            <input type="text" placeholder="City">
-          </div>
-        </div>
+<div class="banner">
 
-        <div class="col-md-12">
-          <div class="input-space">
-            <select>
-              <option>State / Province</option>
-              <option></option>
-              <option></option>
-              <option></option>
-              <option></option>
-            </select>
-          </div>
-        </div>
-        <div class="col-md-12">
-          <div class="input-space">
-            <input type="text" placeholder="Zip Code / Postal Code">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="input-space">
-      <label class="au-checkbox">
-        <input type="checkbox" checked="checked">
-        <span class="au-checkmark"></span> Bill Address same as Shipping Adress
-      </label>
-    </div>
+  <div class="w3l_banner_nav_right">
+<div class="privacy about">
+  <h3>Chec<span>kout</span></h3>
 
-    <div class="form-area">
-      <h3>Credit Card</h3>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="input-space">
-            <select>
-              <option>Visa</option>
-              <option></option>
-              <option></option>
-              <option></option>
-              <option></option>
-            </select>
-          </div>
-        </div>
-        <div class="col-md-12">
-          <div class="input-space">
-            <input type="text" placeholder="Name on card">
-          </div>
-        </div>
-        <div class="clearfix"></div>
-        <div class="col-md-8">
-          <div class="input-space">
-            <input type="text" placeholder="Card number">
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="input-space">
-            <input type="text" placeholder="CVV2 number">
-          </div>
-        </div>
-        <div class="clearfix"></div>
+    <div class="checkout-right">
+      <h4>Your shopping cart contains: <span>3 Products</span></h4>
+    <table class="timetable_sub">
+      <thead>
+        <tr>
+          <th>SL No.</th>
+          <th>Product</th>
+          <th>Quality</th>
+          <th>Product Name</th>
 
-        <div class="col-md-2"> <label class="date">Expiration Date</label></div>
-        <div class="col-md-5">
-          <div class="input-space">
-            <select>
-              <option>Month</option>
-              <option></option>
-              <option></option>
-              <option></option>
-              <option></option>
-            </select>
+          <th>Price</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody><tr class="rem1" *ngFor="let cartItem of cartItems">
+        <td class="invert">{{cartItems.indexOf(cartItem)+1}}</td>
+        <td class="invert-image"><a href="single.html"><img src="http://localhost:8080/{{ cartItem.imageUrl }}" alt=" " class="img-responsive"></a></td>
+        <td class="invert">
+           <div class="quantity">
+            <div class="quantity-select">
+              <div (click)="decrementQuantity(cartItem)" class="entry value-minus">&nbsp;</div>
+              <div class="entry value"><span>{{cartItem.quantity}}</span></div>
+              <div (click)="incrementQuantity(cartItem)" class="entry value-plus active">&nbsp;</div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-5">
-          <div class="input-space">
-            <select>
-              <option>Year</option>
-              <option></option>
-              <option></option>
-              <option></option>
-              <option></option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
+        </td>
+        <td class="invert">{{cartItem.name}}</td>
 
-    <div class="form-area">
-      <h3>Review Your Order</h3>
-      <b>Total Quantity: 2</b>
-      <h4>Shipping: FREE</h4>
-      <B>Total Price: $19.99</B>
-    </div>
-  <div class="text-center">
-    <button type="submit" class="btn btn-info">Purchase</button>
+        <td class="invert">{{cartItem.unitPrice*cartItem.quantity | currency:'USD'}}</td>
+        <td class="invert">
+          <div class="rem">
+            <div (click)="remove(cartItem)" class="close1"> </div>
+          </div>
+
+        </td>
+      </tr>
+
+
+    </tbody></table>
   </div>
-  </form>
+  <div class="checkout-left">
+    <div class="col-md-4 checkout-left-basket">
+      <h4>Continue to basket</h4>
+      <ul>
+        <li *ngFor="let cartItem of cartItems">P{{cartItem.name}}<i>-</i>
+          <span>{{cartItem.unitPrice*cartItem.quantity | currency:'USD'}}</span>
+        </li>
+        <li>Total Service Charges <i>-</i> <span>{{serviceCharge | currency:'USD'}}</span></li>
+        <li>Total <i>-</i> <span>{{totalPrice+serviceCharge | currency:'USD'}}</span></li>
+      </ul>
+    </div>
+    <div class="col-md-8 address_form_agile">
+        <h4>Add a new Details</h4>
+    <form [formGroup]="shippingAddress" class="creditly-card-form agileinfo_form">
+              <section class="creditly-wrapper wthree, w3_agileits_wrapper">
+                <div class="information-wrapper">
+                  <div class="first-row form-group">
+                    <div class="controls">
+                      <label class="control-label">Full name: </label>
+                      <input formControlName="fullName" class="billing-address-name form-control" type="text" name="name" placeholder="Full name">
+                    </div>
+                    <div class="w3_agileits_card_number_grids">
+                      <div class="w3_agileits_card_number_grid_left">
+                        <div class="controls">
+                          <label class="control-label">Mobile number:</label>
+                            <input formControlName="mobileNumber" class="form-control" type="text" placeholder="Mobile number">
+                        </div>
+                      </div>
+                      <div class="w3_agileits_card_number_grid_right">
+                        <div class="controls">
+                          <label class="control-label">Landmark: </label>
+                         <input formControlName="landmark" class="form-control" type="text" placeholder="Landmark">
+                        </div>
+                      </div>
+                      <div class="clear"> </div>
+                    </div>
+                    <div class="controls">
+                      <label class="control-label">Town/City: </label>
+                     <input formControlName="city" class="form-control" type="text" placeholder="Town/City">
+                    </div>
+                      <div class="controls">
+                          <label class="control-label">Address type: </label>
+                         <select formControlName="addressType" class="form-control option-w3ls">
+                                          <option>Office</option>
+                                          <option>Home</option>
+                                          <option>Commercial</option>
+
+                                      </select>
+                      </div>
+                  </div>
+                  <button class="submit check_out">Delivery to this Address</button>
+                </div>
+              </section>
+            </form>
+              <div class="checkout-right-basket">
+              <a href="payment.html">Make a Payment <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+          </div>
+      </div>
+
+    <div class="clearfix"> </div>
+
+  </div>
+
+</div>
+</div>
+<div class="clearfix"></div>
+</div>

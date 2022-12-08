@@ -1,3 +1,4 @@
+import { BannercarouselComponent } from './components/bannercarousel/bannercarousel.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { SearchComponent } from './components/search/search.component';
@@ -13,7 +14,7 @@ const routes: Routes = [
   {path: "search/:keyword", component: SearchComponent},
   {path: 'cart-details', component: CartDetailsComponent},
   {path: 'checkout', component: CheckoutComponent},
-  {path: "**", component: HomeComponent},
+  {path: "**", component: BannercarouselComponent},
 ];
 
 @NgModule({

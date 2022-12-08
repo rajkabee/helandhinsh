@@ -2472,7 +2472,7 @@ table.timetable_sub {
 	border:1px solid #CDCDCD;
 }
 td.invert-image a img {
-    width:30%;
+    width:20%;
     margin: 0 auto;
 }
 .rem{
@@ -2521,6 +2521,11 @@ td.invert-image a img {
 	margin-top: -0.5px;
 	position: absolute;
 }
+.quantity{
+  width: 20%;
+}
+
+
 .quantity-select .entry.value-plus:after{
 	content: "";
 	height: 13px;
