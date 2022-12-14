@@ -1,3 +1,5 @@
+import { Country } from './../../common/country';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { CartItem } from './../../common/cart-item';
 import { CartService } from './../../services/cart.service';
 import { FromServiceService } from './../../services/from-service.service';
@@ -14,7 +16,11 @@ export class CheckoutComponent implements OnInit {
   totalPrice: number = 0;
   totalQuantity: number = 0;
   serviceCharge: number=10;
-  constructor(private cartService: CartService) { }
+  indexedCountries:{[key: string]: Country}[]=[];
+  countries: Country[]=[];
+  constructor(private cartService: CartService,
+              private httpClient: HttpClient
+            ) { }
   shippingAddress= new FormGroup({
     fullName: new FormControl(''),
     mobileNumber: new FormControl(''),
@@ -26,6 +32,21 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.listCartDetails();
+    const headers= new HttpHeaders()
+        .set('Accept', 'application/json')
+        .set('Authorization','Bearer P4jtNKZhPEfQ8E5ldUas1X4f5s8qKLRi0wvLOgvf');
+
+    this.httpClient.get<{[key: string]: Country}[]>("https://countryapi.io/api/all", {headers})
+        .subscribe(
+          response=>{
+            this.indexedCountries= response;
+            for(let key in this.indexedCountries ){
+              let ctry = this.indexedCountries[key];
+              this.countries.push(ctry as unknown as Country);
+              console.log(ctry?.['name']);
+            }
+          }
+        );
   }
 
   listCartDetails() {
